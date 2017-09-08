@@ -1,0 +1,92 @@
+.mainPic {
+  padding: 5px;
+  height: 70%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: initial;
+    max-height:initial;
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+}
+.cameraPage{
+
+}
+.style-list {
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+  }
+  &::-webkit-scrollbar-track:horizontal
+  {
+    height:0;
+  }
+  height: calc(30% - 40px);
+  display: flex;
+  overflow-x: scroll;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  &:after{
+    display: inline-block;
+    content: '1';
+    visibility: hidden;
+    margin:0 -5px;
+  }
+  & > div {
+    flex:0 0 100px;
+    height: 100px;
+    margin:0 15px;
+    display: inline-block;
+    position: relative;
+    img{
+      width:100%;
+      height:100%;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .style-info{
+      position: absolute;
+      bottom: 0;
+      width:100%;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 0 5px 5px;
+      background: rgba(0,0,0,0.8);
+    }
+  }
+}
+
+.styles {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  .style-category {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    .category-active{
+      border-bottom: 1px solid #2aa9e7;
+    }
+    span{
+      display: inline-block;
+      border-bottom: 1px solid transparent;
+      transition: .5s ease;
+    }
+    .list-each {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: 40px;
+      background: #333;
+      color: #fff;
+    }
+  }
+}

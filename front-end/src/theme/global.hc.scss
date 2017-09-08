@@ -1,0 +1,89 @@
+ion-header {
+  ion-navbar {
+    .toolbar-background {
+      transition:all .3s ease;
+      height: 100%;
+      background: linear-gradient(45deg, #fce000 70%, #f2d800 100%);
+      border-bottom: transparent !important;
+    }
+  }
+  .toolbar-title {
+    color: #333 !important;
+  }
+  button {
+    color: #333 !important;
+  }
+  ion-segment-button {
+    border-color: #333 !important;
+    color: #333 !important;
+  }
+  .segment-activated {
+    background-color: #fff !important;
+  }
+}
+
+ion-content .scroll-content {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.content-ios:not([no-bounce]) > .scroll-content::before {
+  bottom: 0 !important;
+}
+.text-input{
+  outline: none!important;
+}
+ion-footer {
+  color: $text-color;
+}
+
+.tabbar {
+  background: #fce000 !important;
+  a {
+    color: #333 !important;
+  }
+  ion-icon {
+    color: #333 !important;
+  }
+}
+
+//
+//
+// ------------------------------------
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+//
+//
+// ------------------------------------
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+//
+//
+// ------------------------------------
+.hc-toast {
+  .toast-wrapper {
+    // background-color: color($colors, grey) !important;
+  }
+}
+
+.no-badge {
+  ion-badge {
+    display: none;
+  }
+}

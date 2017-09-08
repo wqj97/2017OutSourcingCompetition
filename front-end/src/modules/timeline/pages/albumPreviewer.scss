@@ -1,0 +1,31 @@
+.album-preview {
+  .scroll-content {
+    background: #333;
+    display: flex;
+    width: 100%;
+    img {
+      display: inline-block;
+      width: 95%;
+      border-radius: 3px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+album-preview{
+  ion-navbar{
+    transition: .5s ease;
+    background: #333!important;
+    *,.toolbar-title{
+      color: #ffffff !important;
+    }
+    &.leave{
+      background: color($colors,'theme') !important;
+    }
+  }
+  .toolbar-background {
+    background: transparent !important;
+  }
+  .swiper-pagination{
+    color: #fff;
+  }
+}

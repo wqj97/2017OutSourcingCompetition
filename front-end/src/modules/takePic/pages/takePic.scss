@@ -1,0 +1,102 @@
+takepic {
+  .scroll-content {
+    color: #fff;
+    background: #000;
+  }
+  .camera-header {
+    position: relative;
+    text-align: center;
+    margin-top: 23px;
+    height: 50px;
+    line-height: 50px;
+    background: #000;
+    font-size: 16px;
+    color: #fff;
+    ion-icon {
+      font-size: 30px;
+      position: absolute;
+      left: 15px;
+    }
+  }
+  .menu {
+    display: flex;
+
+    ion-icon {
+      display: block;
+      font-size: 1.8em;
+    }
+    & > div {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      &.active {
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+  .slider {
+    padding-top: 20px;
+    .range-pin {
+      color: #fff !important;
+    }
+    & > * {
+      display: none;
+      &.active {
+        display: flex;
+      }
+    }
+  }
+  .sticker-list {
+    overflow-x: scroll;
+    margin-top: -20px;
+    ion-icon {
+      font-size: 4em;
+    }
+    &::-webkit-scrollbar {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .list-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      flex: 0 0 100px;
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+  .camera-preview {
+    border-radius: 5px;
+    width: 100%;
+    transform: translate3D(0, 0, 0);
+    position: relative;
+    img {
+      position: absolute;
+      display: inline-block;
+      z-index:999;
+      max-width: 50%;
+    }
+    canvas {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
+  }
+  .checkIfSave {
+    justify-content: space-around;
+    align-items: center;
+    ion-icon {
+      font-size: 4em;
+      color: #fff;
+    }
+  }
+  .dom2base64 {
+    display: none;
+  }
+}

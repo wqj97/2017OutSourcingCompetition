@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>虹软智图</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+  <meta http-equiv="Content-Security-Policy" content="
+                        default-src * data: blob: ws: wss: gap://ready file://* assets-library://*;
+                        style-src * 'unsafe-inline';
+                        media-src * blob:;
+                        script-src * 'unsafe-inline' 'unsafe-eval';
+                        connect-src * ws: wss: blob:;
+                        img-src * blob: data:;">
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="build/main.css" rel="stylesheet">
+
+  <script>
+    /**
+     * if window.API_DOMAIN is empty, will use window.location.href (only webapp mode)
+     * if you want to use the ionic proxy, please set window.API_DOMAIN to be empty, and then configure the ionic.config.json file, and then run `$ ionic server`
+     *
+     * window.API_DOMAIN is required in app mode (!important)
+     */
+//    window.API_DOMAIN = 'https://wx.97qingnian.com';
+    window.API_DOMAIN = 'http://192.168.0.100';
+  </script>
+</head>
+<body>
+<!-- Ionic's root component and where the app will load -->
+<ion-app></ion-app>
+
+<!-- The polyfills js is generated during the build process -->
+<script src="build/polyfills.js"></script>
+
+<!-- The bundle js is generated during the build process -->
+<script src="build/main.js"></script>
+</body>
+</html>

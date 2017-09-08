@@ -1,0 +1,22 @@
+page-hc-feedback {
+  .item-inner{
+    border-bottom: none!important;
+  }
+  form{
+    padding: 15px;
+  }
+  .item-input{
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    min-height:20rem !important;
+    border-radius: 3px;
+  }
+  ion-content {
+    //
+    //
+    #section-brand {
+      background-color: #ddd;
+      padding: 40px 0 30px;
+    }
+
+  }
+}

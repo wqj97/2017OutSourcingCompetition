@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ 'user.Feedback' | translate }}
+    </ion-title>
+    <ion-buttons end>
+      <button color="grey" ion-button (click)="sendFeedBack()">
+        发送反馈
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <form>
+      <ion-item>
+        <ion-textarea #inputFeedBack [(ngModel)]="feedbackContent" name="content" required ngModel rows="10"
+                      placeholder="有什么想在这里对我们说的都可以在这里说">
+        </ion-textarea>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>

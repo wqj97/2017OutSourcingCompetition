@@ -1,0 +1,22 @@
+{
+  "name": "ArcInPic",
+  "app_id": "20bab17a",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://wx.97qingnian.com/api"
+    },
+    {
+      "path": "/uploads",
+      "proxyUrl": "https://wx.97qingnian.com/uploads"
+    },
+    {
+      "path": "/style",
+      "proxyUrl": "https://wx.97qingnian.com/style"
+    }
+  ],
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

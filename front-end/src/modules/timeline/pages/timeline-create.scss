@@ -1,0 +1,62 @@
+page-timeline-create {
+  ion-content {
+    //
+    //
+    #section-textarea {
+      margin-bottom: 0;
+
+      //
+      ion-item {
+        padding-left: 0;
+      }
+
+      //
+      textarea {
+        padding-left: 16px;
+      }
+    }
+
+
+    //
+    //
+    .preview-imgs {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-bottom: 15px;
+      overflow-x: scroll;
+      img {
+        margin:6px;
+        display: inline-block;
+        width: 120px;
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+    }
+
+
+    //
+    //
+    .media-toolbar {
+      margin-bottom: -7px;
+
+      //
+      .input-imgs, .input-video {
+         display: inline-block;
+         position: absolute;
+         height: 36px;
+         width: 47px;
+         left: 0px;
+         background-color: #ddd;
+         opacity: 0;
+      }
+    }
+
+
+    //
+    //
+    .media-inputs {
+      margin: 6px 16px 0;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="camera-header">
+    <ion-icon name="ios-images" (tap)="chooseImage()"></ion-icon>
+    拍摄照片
+  </div>
+  <div class="camera-preview" #cameraBox>
+    <img #stickerImage>
+    <canvas #cameraPicture [ngStyle]="filterStyle"></canvas>
+  </div>
+  <div class="menu">
+    <div class="brightness active" (tap)="showSlider('brightness',$event)">
+      <ion-icon name="ios-sunny-outline"></ion-icon>
+    </div>
+    <div class="contrast">
+      <ion-icon name="contrast" (tap)="showSlider('contrast',$event)"></ion-icon>
+    </div>
+    <div class="blur">
+      <ion-icon name="ios-water-outline" (tap)="showSlider('blur',$event)"></ion-icon>
+    </div>
+    <div class="sticker">
+      <ion-icon name="logo-buffer" (tap)="showSlider('sticker',$event)"></ion-icon>
+    </div>
+    <div class="save">
+      <ion-icon name="ios-download-outline" (tap)="showSlider('save',$event)"></ion-icon>
+    </div>
+  </div>
+  <div class="slider">
+    <ion-range [(ngModel)]="brightnessValue" (ngModelChange)="changedExtraHandler()" min="-50" max="50" pin="true" class="active"
+               #brightness></ion-range>
+    <ion-range [(ngModel)]="contrastValue" (ngModelChange)="changedExtraHandler()" min="-50" max="50" pin="true" #contrast></ion-range>
+    <ion-range [(ngModel)]="blurValue" (ngModelChange)="changedExtraHandler()" min="0" max="30" pin="true" #blur></ion-range>
+    <div class="sticker-list" #sticker>
+      <div class="list-child">
+        <ion-icon name="ios-close-circle-outline" (tap)="clearSticker()"></ion-icon>
+      </div>
+      <div class="list-child" *ngFor="let stickerUrl of stickerListUrl;let i = index">
+        <img src="./assets/images/sticker/{{stickerUrl}}" (tap)="addSticker(i)">
+      </div>
+    </div>
+    <div #save class="checkIfSave">
+      <ion-icon name="ios-close-circle-outline" (tap)="retake()"></ion-icon>
+      <ion-icon name="ios-checkmark-circle-outline" (tap)="savePicture()"></ion-icon>
+    </div>
+  </div>
+  <div class="dom2base64">
+    <canvas #targetCanvas></canvas>
+  </div>
+</ion-content>

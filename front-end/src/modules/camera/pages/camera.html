@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ 'Camera' | translate }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only color="grey" (tap)="openCamera()">
+        <ion-icon name="ios-arrow-back-outline" style="font-size: 1em;">返回</ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons start>
+      <button ion-button icon-only color="grey" (tap)="getImage()">
+        <ion-icon name="ios-images"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end  *ngIf="styledPic != null">
+    <!--<ion-buttons end>-->
+      <button ion-button icon-only color="grey" (tap)="goShare()">
+        <ion-icon name="ios-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cameraPage">
+  <div class="mainPic">
+    <img src="{{ styledPic ? styledPic : cameraRaw }}" [ngStyle]="cameraPicStyle">
+  </div>
+  <div class="style-list" #styleList>
+
+    <div class="style-each" *ngFor="let styleInfo of styles" (tap)="getStyled(styleInfo.S_Id)">
+      <div class="style-info">
+        {{styleInfo.S_info}}
+      </div>
+      <img [src]="styleInfo.S_source_img" alt="">
+    </div>
+
+  </div>
+  <div class="styles">
+    <div class="style-category">
+      <div class="list-each">
+        <span class="category-active" (tap)="showCategoryStyles('recommand', $event)">推荐</span>
+      </div>
+      <div class="list-each" *ngFor="let category of styleCategory;let i = index">
+        <span (tap)="showCategoryStyles(i, $event)">{{category.SC_name}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
