@@ -107,6 +107,9 @@ class TriggerNoticeListener
             case 'topic_comment_comment':
                 $notification .= trans('notice.Reply Your TopicComment: ');
                 break;
+            case 'feed_back':
+                $notification .= '你的反馈有一个新的答复: ';
+                break;
         }
 
         if ($hasContent) {

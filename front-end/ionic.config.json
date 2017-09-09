@@ -4,15 +4,15 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://wx.97qingnian.com/api"
+      "proxyUrl": "http://localhost/api"
     },
     {
       "path": "/uploads",
-      "proxyUrl": "https://wx.97qingnian.com/uploads"
+      "proxyUrl": "http://localhost/uploads"
     },
     {
       "path": "/style",
-      "proxyUrl": "https://wx.97qingnian.com/style"
+      "proxyUrl": "http://localhost/style"
     }
   ],
   "type": "ionic-angular",

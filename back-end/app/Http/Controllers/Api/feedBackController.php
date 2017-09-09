@@ -25,7 +25,8 @@ class feedBackController extends Controller
     {
         $userId = $request->userId;
         $content = $request->content;
-        DB::insert('INSERT INTO feed_back (F_user_Id,F_content) VALUES (?,?)', [$userId, $content]);
+        $related_Id = $request->timeLineId;
+        DB::insert('INSERT INTO feed_backs (F_user_Id,F_related_Id,F_content) VALUES (?,?,?)', [$userId, $related_Id, $content]);
         return '';
     }
 }

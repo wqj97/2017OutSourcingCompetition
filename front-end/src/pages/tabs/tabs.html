@@ -2,7 +2,6 @@
           color="grey-tabs"
           selectedIndex="1"
           [ngClass]="{'no-badge': !noticeService.noCheckNotices.length }">
-  <!--<ion-tab tabUrlPath="Camera" [root]="cameraTabRoot" tabTitle="{{ 'Camera' | translate }}" tabIcon="camera" ></ion-tab>-->
   <ion-tab tabUrlPath="Camera" [root]="takePicTabRoot" tabTitle="{{ 'Camera' | translate }}" tabIcon="camera" ></ion-tab>
   <ion-tab tabUrlPath="park" [root]="timelineTabRoot" tabTitle="{{ 'Park' | translate }}" tabIcon="flower" ></ion-tab>
   <ion-tab tabUrlPath="topic" [root]="topicTabRoot" tabTitle="{{ 'Topic' | translate }}" tabIcon="quote" ></ion-tab>

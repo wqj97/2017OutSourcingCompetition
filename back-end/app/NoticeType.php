@@ -20,6 +20,8 @@ class NoticeType extends Model
         ['id' => 20, 'name' => 'topic_like'],
         ['id' => 21, 'name' => 'topic_comment'],
         ['id' => 22, 'name' => 'topic_comment_comment'],
+        ['id' => 23, 'name' => 'feed_back_notice']
+
     ];
 
     /**

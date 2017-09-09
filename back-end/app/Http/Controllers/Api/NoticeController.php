@@ -31,8 +31,12 @@ class NoticeController extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->each(function($item, $key) {
-                if ($item->target->images) {
-                    $item->images = $item->target->images;
+                try {
+                    if ($item->target->images) {
+                        $item->images = $item->target->images;
+                    }
+                } catch (\Exception $e) {
+                    $item->images = '';
                 }
             })
             ->toArray();

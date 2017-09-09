@@ -39,7 +39,7 @@
       <div class="content" [innerHtml]="timeline.content | nl2br"></div>
     </ion-card-content>
 
-    <div *ngIf="timeline.imgs.length === 1" style="margin-bottom: 15px;">
+    <div *ngIf="timeline.imgs.length === 1" class="single-image-box">
       <img src="{{ heyApp.helper.getImg(timeline.imgs[0].uri) }}?imageView/2/w/800" (click)="showAlbum(timeline)">
     </div>
 

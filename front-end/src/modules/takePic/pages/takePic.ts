@@ -5,7 +5,7 @@ import {Camera} from '@ionic-native/camera'
 import {FilterModel} from '../models/filter.model'
 import Draggabilly from 'Draggabilly'
 import {CameraPage} from "../../camera/pages/camera"
-import {LoadingController} from 'ionic-angular'
+import {LoadingController, NavController} from 'ionic-angular'
 
 @Component({
     selector: 'takePic',
@@ -43,7 +43,8 @@ export class TakePicPage {
     constructor(public heyApp: AppService,
                 public camera: Camera,
                 public statusBar: StatusBar,
-                public loading: LoadingController) {
+                public loading: LoadingController,
+                public navCtrl: NavController) {
     }
 
     ionViewDidLoad() {
@@ -89,6 +90,7 @@ export class TakePicPage {
             image.src = this.cameraRawImageData
             this.filter = new FilterModel(this.cameraPicture.nativeElement, this.targetCanvas.nativeElement, window.screen.width, window.screen.width)
         }).catch(() => {
+            this.navCtrl.parent.select(1)
         })
     }
 

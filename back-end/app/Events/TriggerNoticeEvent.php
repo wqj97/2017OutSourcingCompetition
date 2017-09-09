@@ -27,11 +27,12 @@ class TriggerNoticeEvent extends Event
      *
      * @return void
      */
-    public function __construct($entity, $target, $typeName)
+    public function __construct ($entity, $target, $typeName, $message = '')
     {
         $this->entity = $entity;
         $this->target = $target;
         $this->noticeTypeName = $typeName;
+        $this->message = $message;
     }
 
     /**
@@ -39,7 +40,7 @@ class TriggerNoticeEvent extends Event
      *
      * @return array
      */
-    public function broadcastOn()
+    public function broadcastOn ()
     {
         return [];
     }

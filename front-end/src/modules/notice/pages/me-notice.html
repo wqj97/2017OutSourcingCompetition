@@ -18,11 +18,14 @@
   <ion-list id="section-notices">
     <ion-item-sliding #item *ngFor="let notice of noticeService.notices">
       <ion-item [ngClass]="{ checked: notice.is_checked === 1 }">
-        <ion-avatar item-left>
+        <ion-avatar item-left *ngIf="notice.type_id != 23">
           <img src="{{ heyApp.helper.getImg(notice.initiator.avatar) }}?imageView/2/w/100">
         </ion-avatar>
-        <h2>
+        <h2 *ngIf="notice.type_id != 23">
           {{ notice.initiator.nickname }}
+        </h2>
+        <h2 *ngIf="notice.type_id == 23">
+          你的反馈有一个新的答复:
         </h2>
         <p>{{ getNoticeText(notice) }}</p>
 

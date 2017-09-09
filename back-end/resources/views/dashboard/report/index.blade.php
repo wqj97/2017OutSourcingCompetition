@@ -23,7 +23,7 @@
                             <th>被举报话题ID</th>
                             <th>被举报用户名</th>
                             <th>被举报内容</th>
-                            <th>举报图片</th>
+                            <th>举报理由</th>
                             <th>举报时间</th>
                             <th>操作</th>
                         </tr>
@@ -31,18 +31,11 @@
                     <tbody>
                         @foreach ($timelines as $timeline)
                         <tr>
-                            <td>{{ $timeline->id }}</td>
-                            <td>{{ $timeline->author->nickname }}</td>
+                            <td>{{ $timeline->F_related_Id }}</td>
+                            <td>{{ $timeline->author }}</td>
                             <td>{{ $timeline->content }}</td>
-                            <?php
-                            $imgs = \App\TimelineImg::getImgs($timeline->imgs);
-                            ?>
-                            <td>
-                                @foreach ($imgs as $img)
-                                    <img style="width:60px" src="{{ \App\TimelineImg::getImgUrl($img->uri) }}">
-                                @endforeach
-                            </td>
-                            <td>{{ $timeline->created_at }}</td>
+                            <td>{{ $timeline->F_content }}</td>
+                            <td>{{ $timeline->F_date }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -61,10 +54,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
-                <div>
-                    {!! $timelines->render() !!}
-                </div>
             </div>
         </div>
     </div>
