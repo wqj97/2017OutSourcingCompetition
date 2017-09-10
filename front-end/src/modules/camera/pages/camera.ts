@@ -53,9 +53,11 @@ export class CameraPage {
             this.styles = result.recommend
         })
     }
-    ionViewWillLeave() {
+
+    ionViewWillUnload() {
         this.statusBar.styleLightContent()
     }
+
     goShare() {
         let actionSheet = this.actionSheet.create({
             title: '分享',
@@ -67,7 +69,7 @@ export class CameraPage {
                     }
                 },
                 {
-                    text: '分享到公园',
+                    text: '保存并分享到公园',
                     handler: () => {
                         this.saveInAlbum()
                         this.goCreateTimeLine()
@@ -113,7 +115,7 @@ export class CameraPage {
         if (this.heyApp.authService.authOrLogin()) {
             let page = TimelineCreatePage
             let params = {
-                picData: this.styledPic
+                picData: this.styledPic.replace('data:image/jpeg;base64,', '')
             }
             this.heyApp.utilityComp.presentModal(page, params)
         }
@@ -160,7 +162,7 @@ export class CameraPage {
         let options = {
             destinationType: 0,
             sourceType: 0,
-            allowEdit:true,
+            allowEdit: true,
             quality: 100
         }
         this.camera.getPicture(options).then((result) => {

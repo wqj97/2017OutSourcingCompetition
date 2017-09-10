@@ -22,7 +22,8 @@ export class TimelinePage {
         this.timelineService.getTimelinesFromStorage();
     }
 
-    showAlbum(timeline) {
+    showAlbum(timeline,event) {
+        event.srcEvent.stopPropagation()
         this.navCtrl.push(AlbumPreviewerPage, {timeline: timeline})
     }
 
@@ -43,7 +44,8 @@ export class TimelinePage {
 
     //
     // set like for timeline
-    setLikeForTimeline(timeline) {
+    setLikeForTimeline(timeline,event) {
+        event.srcEvent.stopPropagation()
         if (this.heyApp.authService.authOrLogin()) {
             this.timelineService.setLike(timeline)
                 .then(newTimeline => {

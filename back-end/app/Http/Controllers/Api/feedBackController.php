@@ -29,4 +29,23 @@ class feedBackController extends Controller
         DB::insert('INSERT INTO feed_backs (F_user_Id,F_related_Id,F_content) VALUES (?,?,?)', [$userId, $related_Id, $content]);
         return '';
     }
+
+    public function postDestroy (Request $request)
+    {
+        DB::delete('delete from feed_backs WHERE id = ?',[$request->id]);
+    }
+
+    public function postReply (Request $request)
+    {
+        DB::update('UPDATE feed_backs SET F_reply = ? WHERE id = ?', [$request->content, $request->id]);
+        DB::insert('INSERT INTO notices (user_id, initiator_user_id, entity_id, entity_type, type_id) VALUES (?,?,?,?,?)',
+            [
+                1, $request->userId, $request->id, 'App\FeedBack', '23'
+            ]);
+    }
+
+    public function postBan (Request $request)
+    {
+        DB::update('update timelines set deleted_at = current_time() WHERE id = ?',[$request]);
+    }
 }

@@ -73,6 +73,8 @@ export class AuthenticatePage {
       }, (data) => {
         this.heyApp.utilityComp.dismissLoading();
         this.heyApp.utilityComp.presentAlter({title: this.heyApp.translateService.instant('user.Log In Failed'), subTitle: data._body});
+      }).catch(() => {
+          this.heyApp.utilityComp.presentAlter({title: this.heyApp.translateService.instant('user.Log In Failed'), subTitle: this.heyApp.translateService.instant('user.Maybe Freezed')});
       });
     }
   }

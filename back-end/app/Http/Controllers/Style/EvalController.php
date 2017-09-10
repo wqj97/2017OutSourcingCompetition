@@ -52,6 +52,9 @@ class EvalController extends Controller
 
     private function addHot ($Id)
     {
+        if (!isset($Id)) {
+            return;
+        }
         $hotHeap = Cache::get('hot', []);
         if (count($hotHeap) > 100) {
             array_splice($hotHeap, 0, 1);

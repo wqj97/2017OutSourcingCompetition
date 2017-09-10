@@ -102,7 +102,11 @@ export class TakePicPage {
         let promise = new Promise((resolve, reject) => {
             saveLoading.present()
             this.filter.filterImage(this.brightnessValue / 100, 1 + this.contrastValue / 100, this.blurValue * 1.5)
-            this.addStikerToSave(resolve)
+            if (this.stickerImage.nativeElement.style.display == 'block') {
+                this.addStikerToSave(resolve)
+            } else {
+                resolve()
+            }
         })
         promise.then(() => {
             saveLoading.dismiss()

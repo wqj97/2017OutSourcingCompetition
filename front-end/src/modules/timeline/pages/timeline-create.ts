@@ -50,7 +50,7 @@ export class TimelineCreatePage {
                 public navCtrl: NavController,
                 public viewCtrl: ViewController,
                 public navParam: NavParams,
-                public toast:ToastController) {
+                public toast: ToastController) {
         this.headers = new Headers({'X-Requested-With': 'XMLHttpRequest'});
         this.requestOptions = new RequestOptions({headers: this.headers});
         if (this.navParam.data.picData != undefined) {

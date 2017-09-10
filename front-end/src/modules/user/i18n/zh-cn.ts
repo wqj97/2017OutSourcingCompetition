@@ -20,6 +20,7 @@ export class ZhCn {
       "Agree User Agreement":         "注册即表示同意用户协议",
 
       "Me":                           "我",
+        "Maybe Freezed":              "或因为违规行为被冻结",
       "Hey Guys":                     "Hey 朋友",
       "Let's Login Now":              "立即登录",
       "Lets Login Now":               "立即登录",

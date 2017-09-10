@@ -18,6 +18,7 @@ export class EnGb {
       "Agree User Agreement":         "I agree to the User Agreement",
 
       "Me":                           "Me",
+        "Maybe Freezed":              "or Freezed cause of irregularities",
       "Hey Guys":                     "Hey Guys",
       "Let's Login Now":              "Let's Login Now",
       "Lets Login Now":               "Lets Login Now",

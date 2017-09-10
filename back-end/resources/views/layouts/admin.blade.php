@@ -11,6 +11,7 @@
     <link href="{{ asset('/assets/style/app-dashboard.css') }}" rel="stylesheet">
     <script src="{{ asset('/bower-assets/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('/bower-assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/bower-assets/vue/dist/vue.js') }}"></script>
 
     <script src="{{ asset('/assets/javascript/helps.js') }}"></script>
 
@@ -28,6 +29,7 @@
 <div id="section-notification" style="position:absolute; top:80px; right:20px; z-index:999;">
     <script>
       $(document).ready(function () {
+        Vue.config.devtools = true;
         setTimeout(function () {
           $('#section-notification').fadeOut();
         }, 3000);

@@ -57,10 +57,9 @@
                                         操作<span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">修改</a></li>
-                                        <li><a href="#">置顶</a></li>
+                                        <li><a href="#" onclick="editModel({{$topic->id}})">修改</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li class="text-danger"><a href="#">删除</a></li>
+                                        <li class="text-danger"><a href="#" onclick="sendDelete({{$topic->id}})">删除</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -75,6 +74,87 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="editModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">标题:</label>
+                        <input type="text" class="form-control" id="recipient-name" v-model="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">内容:</label>
+                        <textarea type="text" class="form-control" id="recipient-name" v-model="content"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @click="sendChange()">保存更改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: '#editModal',
+        data () {
+          return {
+            id: 0,
+            content: '',
+            title: ''
+          }
+        },
+        methods: {
+          sendChange () {
+            $.ajax({
+              url: './topic/update',
+              type: 'post',
+              data: {
+                id: this.id,
+                content: this.content,
+                title: this.title
+              },
+              success () {
+                $('#editModal').modal('hide')
+                window.location.reload()
+              }
+            })
+          }
+
+        }
+      })
+
+      function editModel (id) {
+        $.ajax({
+          url: './topic/by-id',
+          data: {
+            id: id
+          },
+          success (data) {
+            data = data[0]
+            vm.id = id
+            vm.content = data.content
+            vm.title = data.title
+            $('#editModal').modal()
+          }
+        })
+      }
+
+      function sendDelete (id) {
+        if (confirm('确认要删除吗!!')) {
+          $.ajax({
+                url: './topic/destroy',
+                type: 'post',
+                data: {
+                  id: id
+                },
+                success () {
+                  window.location.reload()
+                }
+              }
+          )
+        }
+      }
+    </script>
 </div>
 @endsection
 

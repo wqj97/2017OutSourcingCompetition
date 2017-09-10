@@ -5,7 +5,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only color="grey" (click)="presentTimelineCreateModal()">
+      <button ion-button icon-only color="grey" (tap)="presentTimelineCreateModal()">
         <ion-icon name="camera"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,7 +17,8 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let timeline of timelineService.timelines; let i=index" class="timeline-card">
+  <ion-card *ngFor="let timeline of timelineService.timelines; let i=index" class="timeline-card"
+            (tap)="gotoTimelineDetailPage(timeline, i)">
     <ion-item class="header">
       <ion-avatar item-left>
         <img class="avatar" src="{{ heyApp.helper.getImg(timeline.author?.avatar) }}?imageView/2/w/100">
@@ -40,30 +41,31 @@
     </ion-card-content>
 
     <div *ngIf="timeline.imgs.length === 1" class="single-image-box">
-      <img src="{{ heyApp.helper.getImg(timeline.imgs[0].uri) }}?imageView/2/w/800" (click)="showAlbum(timeline)">
+      <img src="{{ heyApp.helper.getImg(timeline.imgs[0].uri) }}?imageView/2/w/800" (tap)="showAlbum(timeline, $event)">
     </div>
 
     <div class="img-muilt" [ngClass]="{'img-odd': (timeline.imgs.length % 2)}" *ngIf="timeline.imgs.length > 1">
       <div *ngFor="let img of timeline.imgs; let i = index"
            [ngStyle]="{'background-image': 'url(' + heyApp.helper.getImg(img.uri) + ')'}"
-           (click)="showAlbum(timeline)"></div>
+           (tap)="showAlbum(timeline)"></div>
       <span class="clear-float"></span>
     </div>
 
     <div *ngIf="timeline.video">
-      <video width="100%" preload="none" (click)="videoPlay($event)" poster="{{ heyApp.helper.getImg(timeline.poster) }}" src="{{ heyApp.helper.getVideo(timeline.video) }}"></video>
+      <video width="100%" preload="none" (tap)="videoPlay($event)" poster="{{ heyApp.helper.getImg(timeline.poster) }}"
+             src="{{ heyApp.helper.getVideo(timeline.video) }}"></video>
     </div>
 
     <ion-row class="footer">
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (click)="setLikeForTimeline(timeline)">
+        <button ion-button icon-only color="grey" clear small (tap)="setLikeForTimeline(timeline,$event)">
           <ion-icon color="danger" name="{{ timeline.is_like ? 'heart' : 'heart-outline' }}"></ion-icon>
           &nbsp;
           <div>{{ timeline.like_num }} {{ 'timeline.Likes' | translate }}</div>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (click)="gotoTimelineDetailPage(timeline, i)">
+        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i)">
           <ion-icon name="text"></ion-icon>
           &nbsp;
           <div>{{ timeline.comment_num }} {{ 'timeline.Comments' | translate }}</div>
@@ -77,15 +79,15 @@
     </ion-row>
 
     <div *ngIf="timeline.comment_num" class="comments">
-        <div *ngFor="let comment of timeline.comments; let i=index;">
-          <div class="item-comment" *ngIf="i < 3">
-            <span class="author">{{ comment.author?.nickname }}</span>:
-            <span *ngIf="comment.parent_id">
+      <div *ngFor="let comment of timeline.comments; let i=index;">
+        <div class="item-comment" *ngIf="i < 3">
+          <span class="author">{{ comment.author?.nickname }}</span>:
+          <span *ngIf="comment.parent_id">
               @{{ comment.parent.author.nickname }}:
             </span>
-            {{ comment.content }}
-          </div>
+          {{ comment.content }}
         </div>
+      </div>
     </div>
   </ion-card>
 

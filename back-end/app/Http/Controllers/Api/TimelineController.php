@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
 use Storage;
 use Thumbnail;
 use Auth;
@@ -62,6 +63,7 @@ class TimelineController extends Controller
 
         return $timelines;
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -261,11 +263,11 @@ class TimelineController extends Controller
             if (Storage::put($imgPath, $contents)) {
                 $TimelineImg = new TimelineImg();
                 $TimelineImg->user_id = Auth::user()->user()->id;
-                $TimelineImg->uri = env('QINIU_DOMAINS_CUSTOM') . '/' . $imgPath;
+                $TimelineImg->uri = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
                 $TimelineImg->save();
 
                 $ret['imgs'][$k]['id'] = $TimelineImg->id;
-                $ret['imgs'][$k]['uri'] = env('QINIU_DOMAINS_CUSTOM') . '/' . $imgPath;
+                $ret['imgs'][$k]['uri'] = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
             }
         }
 
@@ -281,13 +283,13 @@ class TimelineController extends Controller
         $uploadPath = 'uploads/timeline/';
         $fileName = date('Ymd-His_') . str_random(6) . '_' . sha1($request->base64Img);
         $imgPath = $uploadPath . $fileName;
-        file_put_contents(storage_path() . '/app/' . $imgPath,base64_decode($request->base64Img));
+        file_put_contents(storage_path() . '/app/' . $imgPath, base64_decode($request->base64Img));
         $TimelineImg = new TimelineImg();
         $TimelineImg->user_id = Auth::user()->user()->id;
-        $TimelineImg->uri = env('QINIU_DOMAINS_CUSTOM') . '/' . $imgPath;
+        $TimelineImg->uri = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
         $TimelineImg->save();
         $ret['imgs'][0]['id'] = $TimelineImg->id;
-        $ret['imgs'][0]['uri'] = env('QINIU_DOMAINS_CUSTOM') . '/' . $imgPath;
+        $ret['imgs'][0]['uri'] = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
         return $ret;
     }
 

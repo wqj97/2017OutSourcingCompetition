@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
+use Illuminate\Support\Facades\DB;
 use Notification;
 use App\Topic;
 use App\TopicNode;
@@ -20,6 +22,29 @@ class TopicController extends Controller
     {
         $assign['topics'] = Topic::orderBy('id', 'desc')->paginate();
         return view('dashboard.topic.index', $assign);
+    }
+
+    public function getById (Request $request)
+    {
+        return DB::select('select title,content from topics WHERE id = ?',[$request->id]);
+    }
+
+    public function postUpdate (Request $request) {
+        return DB::update('update topics set content = ?,title=? WHERE id = ?',[$request->content,$request->title,$request->id]);
+    }
+
+    public function postDestroy(Request $request){
+        $this->validate($request, [
+            'id' => 'required',
+        ]);
+
+        $Topic = Topic::findOrFail($request->id);
+
+        if ($Topic->user_id === Auth::user()->user()->id || Auth::user()->user()->is_admin) {
+            return $Topic->delete() ? ['success'] : response('fail', 500);
+        }
+
+        return abort(403, 'Insufficient permissions');
     }
 
     /**
