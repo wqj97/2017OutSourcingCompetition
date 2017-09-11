@@ -38,7 +38,8 @@ export class TimelinePage {
 
     //
     // goto timeline detail page
-    gotoTimelineDetailPage(timeline, index) {
+    gotoTimelineDetailPage(timeline, index,event) {
+        event.stopPropagation()
         this.navCtrl.push(TimelineDetailPage, {timeline: timeline, timelineIndex: index});
     }
 

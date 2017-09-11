@@ -65,7 +65,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i)">
+        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i,$event)">
           <ion-icon name="text"></ion-icon>
           &nbsp;
           <div>{{ timeline.comment_num }} {{ 'timeline.Comments' | translate }}</div>
