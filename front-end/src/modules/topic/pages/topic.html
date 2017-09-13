@@ -14,7 +14,7 @@
     </ion-segment>
 
     <ion-buttons end>
-      <button ion-button icon-only color="grey" (click)="presentTopicCreateModal()">
+      <button ion-button icon-only color="grey" (tap)="presentTopicCreateModal()">
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-buttons>
@@ -27,7 +27,7 @@
   </ion-refresher>
 
   <ion-list class="list-topic">
-    <ion-item class="item-topic" *ngFor="let topic of topicService.topics; let i = index" tappable (click)="gotoTopicDetailPage(topic, i)">
+    <ion-item class="item-topic" *ngFor="let topic of topicService.topics; let i = index" tappable (tap)="gotoTopicDetailPage(topic, i)">
       <ion-avatar item-left>
           <img src="{{ heyApp.helper.getImg(topic.author?.avatar) }}?imageView/2/w/100">
       </ion-avatar>

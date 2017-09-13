@@ -18,7 +18,7 @@
   </ion-refresher>
 
   <ion-card *ngFor="let timeline of timelineService.timelines; let i=index" class="timeline-card"
-            (tap)="gotoTimelineDetailPage(timeline, i)">
+            (tap)="gotoTimelineDetailPage(timeline, i,$event)">
     <ion-item class="header">
       <ion-avatar item-left>
         <img class="avatar" src="{{ heyApp.helper.getImg(timeline.author?.avatar) }}?imageView/2/w/100">
@@ -65,7 +65,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i,$event)">
+        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i, $event)">
           <ion-icon name="text"></ion-icon>
           &nbsp;
           <div>{{ timeline.comment_num }} {{ 'timeline.Comments' | translate }}</div>

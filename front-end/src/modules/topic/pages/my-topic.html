@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list class="list-topic">
-    <ion-item class="item-topic" *ngFor="let topic of topics; let i = index" tappable (click)="gotoTopicDetailPage(topic, i)">
+    <ion-item class="item-topic" *ngFor="let topic of topics; let i = index" tappable (tap)="gotoTopicDetailPage(topic, i)">
       <ion-avatar item-left>
           <img src="{{ heyApp.helper.getImg(topic.author?.avatar) }}?imageView/2/w/100">
       </ion-avatar>

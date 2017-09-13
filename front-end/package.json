@@ -101,7 +101,10 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-image-picker": {},
-            "cordova-base64-to-gallery": {},
+            "cordova-base64-to-gallery": {
+                "CAMERA_USAGE_DESCRIPTION": "这个应用需要相机访问权限",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "这个应用需要相册访问权限"
+            },
             "cordova-plugin-badge": {},
             "cordova-plugin-camera": {
                 "CAMERA_USAGE_DESCRIPTION": " ",

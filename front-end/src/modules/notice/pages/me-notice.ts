@@ -97,17 +97,19 @@ export class MeNoticePage {
     getNoticeText(notice) {
         let type = NoticeTypes[notice.type_id];
         let text = '';
-
-        if (type.name === 'timeline_like') {
-            this.heyApp.translateService.get(type.eventText).subscribe((res: string) => {
-                text = res;
-            });
-        } else if (type.name === 'feed_back') {
-            text = notice.entity.F_reply
-        } else {
-            text = notice.entity.content;
+        try {
+            if (type.name === 'timeline_like') {
+                this.heyApp.translateService.get(type.eventText).subscribe((res: string) => {
+                    text = res;
+                });
+            } else if (type.name === 'feed_back') {
+                text = notice.entity.F_reply
+            } else {
+                text = notice.entity.content;
+            }
+        } catch (err) {
+            console.log(err)
         }
-
         return text;
     }
 

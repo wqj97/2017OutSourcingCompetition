@@ -28,7 +28,7 @@
     </div>
 
     <div *ngIf="timeline.video">
-      <video width="100%" preload="none" (click)="videoPlay($event)" poster="{{ heyApp.helper.getImg(timeline.poster) }}" src="{{ heyApp.helper.getVideo(timeline.video) }}"></video>
+      <video width="100%" preload="none" (tap)="videoPlay($event)" poster="{{ heyApp.helper.getImg(timeline.poster) }}" src="{{ heyApp.helper.getVideo(timeline.video) }}"></video>
     </div>
 
     <hr>
@@ -39,14 +39,14 @@
 
     <ion-row class="footer">
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (click)="setLikeForTimeline(timeline)">
+        <button ion-button icon-only color="grey" clear small (tap)="setLikeForTimeline(timeline)">
           <ion-icon color="danger" name="{{ timeline.is_like ? 'heart' : 'heart-outline' }}"></ion-icon>
           &nbsp;
           <div>{{ timeline.like_num }} {{ 'timeline.Likes' | translate }}</div>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-only color="grey" clear small (click)="gotoTimelineDetailPage(timeline, i)">
+        <button ion-button icon-only color="grey" clear small (tap)="gotoTimelineDetailPage(timeline, i)">
           <ion-icon name="text"></ion-icon>
           &nbsp;
           <div>{{ timeline.comment_num }} {{ 'timeline.Comments' | translate }}</div>

@@ -13,7 +13,7 @@
       {{ 'user.Language' | translate }}
     </button>
 
-    <button ion-item (click)="clearCacheHandler()">
+    <button ion-item (tap)="clearCacheHandler()">
       <ion-icon name="trash" item-left></ion-icon>
       {{ 'user.Clear Cache' | translate }}
     </button>
@@ -24,7 +24,7 @@
       <ion-icon name="information-circle" item-left></ion-icon>
       {{ 'user.About' | translate }}
     </button>
-    <button ion-item (click)="openTermsPage()">
+    <button ion-item (tap)="openTermsPage()">
       <ion-icon name="paper" item-left></ion-icon>
       {{ 'user.Terms' | translate }}
     </button>
@@ -39,7 +39,7 @@
   </ion-list>
 
   <ion-list *ngIf="heyApp.authService.isAuth">
-    <button ion-item (click)="gotoLogOut()">
+    <button ion-item (tap)="gotoLogOut()">
       <ion-icon name="log-out" item-left></ion-icon>
       {{ 'user.Log Out' | translate }}
     </button>

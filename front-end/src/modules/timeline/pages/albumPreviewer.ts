@@ -2,7 +2,12 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 
 import {AppService} from '../../common/services/app.service';
-import {ToastController, ActionSheetController} from 'ionic-angular';
+import {ActionSheetController} from 'ionic-angular';
+
+import {StatusBar} from '@ionic-native/status-bar'
+
+import {HCFeedbackPage} from '../../user/pages/hc-feedback'
+
 
 @Component({
     selector: 'album-preview',
@@ -18,7 +23,7 @@ export class AlbumPreviewerPage {
                 public navCtrl: NavController,
                 public navParams: NavParams,
                 public actionSheet: ActionSheetController,
-                public toast: ToastController) {
+                public statusBar: StatusBar) {
         this.timeLine = navParams.data.timeline
         if (this.timeLine.content.length > 5) {
             this.timeLine.content = this.timeLine.content.substring(0, 5) + '...'
@@ -31,9 +36,22 @@ export class AlbumPreviewerPage {
         this.albumImages = srcs
     }
 
+    ionViewWillEnter() {
+        this.statusBar.styleLightContent()
+        this.previewLeave = false
+        if (this.timeLine.content.length > 5) {
+            this.timeLine.content = this.timeLine.content.substring(0, 5) + '...'
+        }
+    }
+
     ionViewWillLeave() {
+        this.statusBar.styleDefault()
         this.previewLeave = true
-        this.timeLine.content='公园'
+        this.timeLine.content = '公园'
+    }
+
+    ionViewWillUnload() {
+
     }
 
     presentActionSheet() {
@@ -44,7 +62,9 @@ export class AlbumPreviewerPage {
                     text: '举报违规内容',
                     role: 'destructive',
                     handler: () => {
-                        this.heyApp.utilityComp.presentAlter({title: this.heyApp.translateService.instant('Report'), subTitle: this.heyApp.translateService.instant('Thanks For Your Report')});
+                        this.navCtrl.push(HCFeedbackPage, {
+                            timeline: this.timeLine
+                        })
                     }
                 },
                 {

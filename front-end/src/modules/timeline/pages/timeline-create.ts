@@ -100,6 +100,7 @@ export class TimelineCreatePage {
 
             this.heyApp.utilityComp.presentAlter(params);
         }
+        this.viewCtrl.dismiss()
     }
 
 
@@ -128,7 +129,7 @@ export class TimelineCreatePage {
     // upload imgs by native camera
     uploadImgsByNativeCamera(type) {
         let options = {
-            quality: 60,
+            quality: 100,
             saveToPhotoAlbum: true,
             sourceType: 1,
             mediaType: 0,
@@ -246,7 +247,6 @@ export class TimelineCreatePage {
     // dismiss
     dismiss() {
         this.viewCtrl.dismiss();
-
     }
 
 

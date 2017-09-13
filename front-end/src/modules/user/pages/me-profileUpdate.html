@@ -5,7 +5,7 @@
     </ion-title>
 
     <ion-buttons end *ngIf="false && item == 'avatar' || !heyApp.helper.platform.is('ios')">
-      <button ion-button (click)="showActionSheet()">
+      <button ion-button (tap)="showActionSheet()">
           <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>

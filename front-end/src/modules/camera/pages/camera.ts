@@ -104,9 +104,12 @@ export class CameraPage {
             duration: 2000,
             position: 'bottom'
         })
-        this.base64ToGallery.base64ToGallery(this.styledPic, {prefix: 'ArcInPic_'}).then(res => {
+        this.base64ToGallery.base64ToGallery(this.styledPic).then(res => {
             toast.present()
+            console.log(res)
         }, err => {
+            console.log(err)
+        }).catch(err => {
             console.log(err)
         })
     }

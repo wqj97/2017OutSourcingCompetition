@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button color="grey" ion-button (click)="dismiss()">
+      <button color="grey" ion-button (tap)="dismiss()">
         {{ 'Close' | translate }}
       </button>
     </ion-buttons>
@@ -9,7 +9,7 @@
     <ion-title>{{ 'timeline.Novelty' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button color="grey" ion-button (click)="timelineCreateHandler(timelineCreateForm)">
+      <button color="grey" ion-button (tap)="timelineCreateHandler(timelineCreateForm)">
         {{ 'timeline.Send' | translate }}
       </button>
     </ion-buttons>
@@ -29,23 +29,18 @@
   </ion-list>
 
   <div class="media-toolbar">
-    <button *ngIf="heyApp.platform.is('cordova') && !waiting" (press)="uploadImgsByNativeCamera('library');" (click)="uploadImgsByNativeCamera('camera');" color="dark" ion-button icon-only outline clear>
+    <button *ngIf="heyApp.platform.is('cordova') && !waiting" (press)="uploadImgsByNativeCamera('library');" (tap)="uploadImgsByNativeCamera('camera');" color="dark" ion-button icon-only outline clear>
       <ion-icon name="camera"></ion-icon>
     </button>
 
-    <button *ngIf="heyApp.platform.is('cordova') && !waiting" (click)="uploadImgsByNativeLibrary();" color="dark" ion-button icon-only outline clear>
+    <button *ngIf="heyApp.platform.is('cordova') && !waiting" (tap)="uploadImgsByNativeLibrary();" color="dark" ion-button icon-only outline clear>
       <ion-icon name="images"></ion-icon>
     </button>
 
     <button *ngIf="!heyApp.platform.is('cordova') && !waiting" color="dark" ion-button icon-only outline clear>
       <ion-icon name="images">
       </ion-icon>
-      <input class="input-imgs" #inputImgs type="file" (click)="inputImgs.value = null" (change)="uploadImgs($event)" multiple accept="image/*" value="Select multiple images">
-    </button>
-
-    <button *ngIf="!waiting" color="dark" ion-button icon-only outline clear>
-      <ion-icon name="videocam"></ion-icon>
-      <input class="input-video" #inputVideo type="file" (click)="inputVideo.value = null"  (change)="uploadVideo($event)" accept="video/*" value="Select a video">
+      <input class="input-imgs" #inputImgs type="file" (tap)="inputImgs.value = null" (change)="uploadImgs($event)" multiple accept="image/*" value="Select multiple images">
     </button>
 
     <button *ngIf="waiting" color="dark" ion-button icon-only disabled outline clear>
@@ -67,6 +62,6 @@
   </div>
 
   <div class="preview-video" *ngIf="video">
-    <video width="60" preload="none" (click)="videoPlay($event)" poster="{{ heyApp.helper.getVideo(video.poster) }}" src="{{ video.uri }}"></video>
+    <video width="60" preload="none" (tap)="videoPlay($event)" poster="{{ heyApp.helper.getVideo(video.poster) }}" src="{{ video.uri }}"></video>
   </div>
 </ion-content>

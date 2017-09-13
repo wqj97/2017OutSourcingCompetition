@@ -48,7 +48,7 @@
           <div class="line-2">
             <span>{{ comment.created_at | moment: ['YYYY-MM-DD HH:mm'] }}</span>
             <span class="pull-right">
-              <button color="grey" ion-button class="btn-comment-reply" small primary clear (click)="presentTopicCommentModal(comment)">
+              <button color="grey" ion-button class="btn-comment-reply" small primary clear (tap)="presentTopicCommentModal(comment)">
                   <ion-icon name="undo"></ion-icon> &nbsp;
               </button>
             </span>
@@ -71,31 +71,31 @@
 <ion-footer>
   <ion-toolbar>
     <ion-buttons left>
-      <button color="grey" ion-button icon-only (click)="goBack()">
+      <button color="grey" ion-button icon-only (tap)="goBack()">
         <ion-icon name="arrow-round-back"></ion-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons right>
-      <button color="grey" ion-button icon-only (click)="presentTopicCommentModal()">
+      <button color="grey" ion-button icon-only (tap)="presentTopicCommentModal()">
         <ion-icon name="text"></ion-icon>
       </button>
 
-      <button color="grey" ion-button icon-only (click)="setThumbUp()">
+      <button color="grey" ion-button icon-only (tap)="setThumbUp()">
         <ion-icon name="thumbs-up"></ion-icon>
         <sup *ngIf="topic.thumb_up_num">{{ topic.thumb_up_num }}</sup>
       </button>
 
-      <button color="grey" ion-button icon-only (click)="setThumbDown()">
+      <button color="grey" ion-button icon-only (tap)="setThumbDown()">
         <ion-icon name="thumbs-down"></ion-icon>
         <sup *ngIf="topic.thumb_down_num">{{ topic.thumb_down_num }}</sup>
       </button>
 
-      <button color="grey" ion-button icon-only (click)="setStar()">
+      <button color="grey" ion-button icon-only (tap)="setStar()">
         <ion-icon name="{{ topic.is_star ? 'star' : 'star-outline' }}"></ion-icon>
       </button>
 
-      <button color="grey" ion-button icon-only (click)="presentActionSheet()">
+      <button color="grey" ion-button icon-only (tap)="presentActionSheet()">
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>

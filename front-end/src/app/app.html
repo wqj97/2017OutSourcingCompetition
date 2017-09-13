@@ -11,7 +11,7 @@
       <ion-list-header *ngIf="list.title?.length">
         {{ list.title | translate }}
       </ion-list-header>
-      <button ion-item menuClose *ngFor="let p of list.pages" (click)="p.click(p.id)">
+      <button ion-item menuClose *ngFor="let p of list.pages" (tap)="p.click(p.id)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         <span>
             {{p.title | translate }}

@@ -3,15 +3,18 @@
     <name>虹软智图</name>
     <description>虹软智图人工智能风格社区</description>
     <author email="wqj97@126.com" href="https://123.206.71.121">万千钧</author>
-    <content original-src="index.html" src="http://192.168.3.202:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <access origin="blob:*" />
+    <access origin="http://192.168.0.100" />
     <allow-intent href="*" />
     <allow-intent href="blob:*" />
+    <allow-intent href="http://192.168.0.100" />
     <allow-navigation href="*" />
     <allow-navigation href="assets-library://**" />
     <allow-navigation href="file://*/*" />
     <allow-navigation href="blob:*" />
+    <allow-navigation href="http://192.168.0.100" />
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
@@ -99,7 +102,10 @@
     <engine name="browser" spec="^5.0.0" />
     <engine name="ios" spec="^4.4.0" />
     <engine name="osx" spec="^4.0.1" />
-    <plugin name="cordova-base64-to-gallery" spec="^4.1.2" />
+    <plugin name="cordova-base64-to-gallery" spec="^4.1.2">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="这个应用需要相机访问权限" />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="这个应用需要相册访问权限" />
+    </plugin>
     <plugin name="cordova-plugin-badge" spec="^0.8.1" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />

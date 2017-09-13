@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button color="grey" ion-button (click)="dismiss()">
+      <button color="grey" ion-button (tap)="dismiss()">
         {{ 'Close' | translate }}
       </button>
     </ion-buttons>
@@ -9,7 +9,7 @@
     <ion-title>{{ 'topic.A Comment' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button color="grey" ion-button (click)="sendTopicCommentHandler(commentForm)">
+      <button color="grey" ion-button (tap)="sendTopicCommentHandler(commentForm)">
         {{ 'Send' | translate }}
       </button>
     </ion-buttons>

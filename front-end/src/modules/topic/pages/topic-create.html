@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons start>
-      <button color="grey" ion-button (click)="dismiss()">
+      <button color="grey" ion-button (tap)="dismiss()">
         {{ 'Close' | translate }}
       </button>
     </ion-buttons>
@@ -9,7 +9,7 @@
     <ion-title>{{ 'topic.Initiate A Topic' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button color="grey" ion-button (click)="topicCreateHandler(topicCreateForm)" [disabled]="topicCreateForm.invalid">
+      <button color="grey" ion-button (tap)="topicCreateHandler(topicCreateForm)" [disabled]="topicCreateForm.invalid">
         {{ 'Send' | translate }}
       </button>
     </ion-buttons>
@@ -25,7 +25,7 @@
       </ion-item>
       <ion-item class="item-select">
         <ion-label>{{ 'topic.Node' | translate }}</ion-label>
-        <ion-select required [(ngModel)]="newTopic.topic_node_id" name="topic_node_id">
+        <ion-select [(ngModel)]="newTopic.topic_node_id" name="topic_node_id">
           <div *ngFor="let node of topicService.nodes">
             <div *ngFor="let childNode of node.child_nodes">
               <ion-option [value]="childNode.id">{{ childNode.name }}</ion-option>
