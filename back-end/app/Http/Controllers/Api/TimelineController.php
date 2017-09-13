@@ -263,11 +263,11 @@ class TimelineController extends Controller
             if (Storage::put($imgPath, $contents)) {
                 $TimelineImg = new TimelineImg();
                 $TimelineImg->user_id = Auth::user()->user()->id;
-                $TimelineImg->uri = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
+                $TimelineImg->uri = 'http://192.168.0.100' . '/' . $imgPath;
                 $TimelineImg->save();
 
                 $ret['imgs'][$k]['id'] = $TimelineImg->id;
-                $ret['imgs'][$k]['uri'] = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
+                $ret['imgs'][$k]['uri'] = 'http://192.168.0.100' . '/' . $imgPath;
             }
         }
 
@@ -286,10 +286,10 @@ class TimelineController extends Controller
         file_put_contents(storage_path() . '/app/' . $imgPath, base64_decode($request->base64Img));
         $TimelineImg = new TimelineImg();
         $TimelineImg->user_id = Auth::user()->user()->id;
-        $TimelineImg->uri = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
+        $TimelineImg->uri = 'http://192.168.0.100' . '/' . $imgPath;
         $TimelineImg->save();
         $ret['imgs'][0]['id'] = $TimelineImg->id;
-        $ret['imgs'][0]['uri'] = $_SERVER['HTTP_ORIGIN'] . '/' . $imgPath;
+        $ret['imgs'][0]['uri'] = 'http://192.168.0.100' . '/' . $imgPath;
         return $ret;
     }
 
