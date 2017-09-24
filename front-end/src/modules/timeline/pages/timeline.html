@@ -17,8 +17,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let timeline of timelineService.timelines; let i=index" class="timeline-card"
-            (tap)="gotoTimelineDetailPage(timeline, i,$event)">
+  <ion-card *ngFor="let timeline of timelineService.timelines; let i=index" class="timeline-card">
     <ion-item class="header">
       <ion-avatar item-left>
         <img class="avatar" src="{{ heyApp.helper.getImg(timeline.author?.avatar) }}?imageView/2/w/100">
@@ -47,13 +46,8 @@
     <div class="img-muilt" [ngClass]="{'img-odd': (timeline.imgs.length % 2)}" *ngIf="timeline.imgs.length > 1">
       <div *ngFor="let img of timeline.imgs; let i = index"
            [ngStyle]="{'background-image': 'url(' + heyApp.helper.getImg(img.uri) + ')'}"
-           (tap)="showAlbum(timeline)"></div>
+           (tap)="showAlbum(timeline, $event)"></div>
       <span class="clear-float"></span>
-    </div>
-
-    <div *ngIf="timeline.video">
-      <video width="100%" preload="none" (tap)="videoPlay($event)" poster="{{ heyApp.helper.getImg(timeline.poster) }}"
-             src="{{ heyApp.helper.getVideo(timeline.video) }}"></video>
     </div>
 
     <ion-row class="footer">
