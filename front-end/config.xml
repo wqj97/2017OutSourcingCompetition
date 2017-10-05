@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ArcInPic0" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>虹软智图</name>
-    <description>虹软智图人工智能风格社区</description>
+    <name>智图</name>
+    <description>智图人工智能风格社区</description>
     <author email="wqj97@126.com" href="https://123.206.71.121">万千钧</author>
     <content src="index.html" />
     <access origin="*" />

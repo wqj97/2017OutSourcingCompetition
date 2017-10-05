@@ -2,7 +2,7 @@ export class ZhCn {
   static translations = {
     //
     //
-    "HeyCommunity":                 "虹软智图",
+    "HeyCommunity":                 "智图",
     "Topic":                        "话题",
     "Park":                         "公园",
     "Me":                           "我",
