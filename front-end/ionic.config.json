@@ -3,16 +3,8 @@
   "app_id": "20bab17a",
   "proxies": [
     {
-      "path": "/api",
-      "proxyUrl": "http://localhost/api"
-    },
-    {
-      "path": "/uploads",
-      "proxyUrl": "http://localhost/uploads"
-    },
-    {
-      "path": "/style",
-      "proxyUrl": "http://localhost/style"
+      "path": "/",
+      "proxyUrl": "http://localhost"
     }
   ],
   "type": "ionic-angular",

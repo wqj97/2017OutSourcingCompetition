@@ -14,6 +14,7 @@
         "buildAndroid": "ionic cordova build android --prod --optimizejs --minifycss --minifyjs",
         "startAndroidEmulator": "nohup /Users/wanqianjun/Library/Android/tools/emulator -netdelay none -netspeed full -avd Nexus_4_API_26 &",
         "debug": "ionic cordova run ios --livereload --prod",
+        "debugEmulator": "ionic cordova run ios --livereload --prod --target iPhone-7-Plus",
         "debugAndroid": "ionic cordova run android --livereload --prod",
         "debugBrowser": "ionic cordova run browser --livereload --prod",
         "upload": "ionic upload"
@@ -28,13 +29,13 @@
         "@angular/platform-browser": "4.0.2",
         "@angular/platform-browser-dynamic": "4.0.2",
         "@ionic-native/badge": "^3.6.1",
-        "@ionic-native/base64": "^4.1.0",
-        "@ionic-native/base64-to-gallery": "^4.1.0",
+        "@ionic-native/base64": "^4.3.0",
+        "@ionic-native/base64-to-gallery": "^4.3.0",
         "@ionic-native/camera": "^3.6.1",
-        "@ionic-native/camera-preview": "^4.2.1",
+        "@ionic-native/camera-preview": "^4.3.0",
         "@ionic-native/core": "3.6.0",
         "@ionic-native/image-picker": "^3.6.1",
-        "@ionic-native/image-resizer": "^4.1.0",
+        "@ionic-native/image-resizer": "^4.3.0",
         "@ionic-native/in-app-browser": "^3.6.1",
         "@ionic-native/splash-screen": "3.4.2",
         "@ionic-native/status-bar": "^3.4.2",
@@ -42,15 +43,15 @@
         "@ionic/storage": "^2.0.1",
         "brewser": "^0.5.1",
         "clean": "^4.0.2",
-        "cordova-android": "^6.2.3",
+        "cordova-android": "^6.3.0",
         "cordova-base64-to-gallery": "^4.1.2",
         "cordova-browser": "^5.0.0",
-        "cordova-ios": "^4.4.0",
+        "cordova-ios": "^4.5.1",
         "cordova-osx": "^4.0.1",
-        "cordova-plugin-badge": "^0.8.1",
+        "cordova-plugin-badge": "^0.8.3",
         "cordova-plugin-camera": "^2.4.1",
-        "cordova-plugin-compat": "^1.1.0",
-        "cordova-plugin-console": "^1.0.7",
+        "cordova-plugin-compat": "^1.2.0",
+        "cordova-plugin-console": "^1.1.0",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-file": "^4.3.3",
         "cordova-plugin-file-transfer": "^1.6.3",
@@ -66,18 +67,18 @@
         "ionic-angular": "3.1.1",
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
-        "ios-deploy": "^1.9.1",
-        "ios-sim": "^6.0.0",
+        "ios-deploy": "^1.9.2",
+        "ios-sim": "^6.1.2",
         "macos": "0.0.1",
         "moment": "^2.15.1",
         "ng2-translate": "^5.0.0",
         "rxjs": "5.1.1",
         "sw-toolbox": "3.4.0",
-        "zone.js": "^0.8.5"
+        "zone.js": "^0.8.18"
     },
     "devDependencies": {
         "@ionic/app-scripts": "1.3.6",
-        "ionic": "3.9.2",
+        "ionic": "3.12.0",
         "typescript": "~2.2.1"
     },
     "cordovaPlugins": [
@@ -100,11 +101,10 @@
     ],
     "cordova": {
         "plugins": {
-            "cordova-plugin-image-picker": {},
-            "cordova-base64-to-gallery": {
-                "CAMERA_USAGE_DESCRIPTION": "这个应用需要相机访问权限",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "这个应用需要相册访问权限"
+            "cordova-plugin-image-picker": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": " "
             },
+            "cordova-base64-to-gallery": {},
             "cordova-plugin-badge": {},
             "cordova-plugin-camera": {
                 "CAMERA_USAGE_DESCRIPTION": " ",
@@ -118,7 +118,10 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "cordova-sqlite-storage": {},
-            "ionic-plugin-keyboard": {}
+            "ionic-plugin-keyboard": {},
+            "cordova-plugin-wechat": {
+                "WECHATAPPID": "wx984e306ab0a8e762"
+            }
         },
         "platforms": [
             "android",
